@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+
 mongoose
-  .connect("mongodb://localhost:27017/test")
-  .then(() => console.log("Connected!"));
+  .connect("mongodb://localhost:27017/thanhlucvip")
+  .then((data) => console.log("connect success"));
 
 const AccountSchema = new mongoose.Schema(
   {
