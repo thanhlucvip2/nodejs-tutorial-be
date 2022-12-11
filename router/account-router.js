@@ -25,6 +25,18 @@ const checkNoUesr = async (req, res, next) => {
 };
 
 router1.get("/", async (req, res, next) => {
+  const { page, size } = req.query;
+  if (page) {
+    var userCount = await AccountModel.count("username");
+    const skip = (+page - 1) * +size;
+    const allAccount = await AccountModel.find({})
+      .sort("username")
+      .skip(skip)
+      .limit(+size);
+
+    res.json({ item: allAccount, total: userCount });
+    return;
+  }
   const data = await AccountModel.find({});
   if (data) {
     res.json(data);
