@@ -17,6 +17,7 @@ function prevPage() {
   myFunction();
 }
 myFunction();
+
 function myFunction() {
   fetch(`/api/v1/?page=${page}&size=${size}`)
     .then((data) => data.json())
