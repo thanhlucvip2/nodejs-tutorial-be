@@ -14,7 +14,7 @@ app.use(
 );
 const port = 3000;
 app.use("/api/v1/", router1);
-app.get("/", (req, res) => {
+app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "hello.html")); // gửi file html cho phía client
 });
 

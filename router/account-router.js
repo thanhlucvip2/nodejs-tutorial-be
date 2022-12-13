@@ -28,7 +28,7 @@ router1.get("/", async (req, res, next) => {
   const { page, size } = req.query;
   if (page) {
     var userCount = await AccountModel.count("username");
-    const skip = (+page - 1) * +size;
+    const skip = (page < 0 ? 0 : +page - 1) * +size;
     const allAccount = await AccountModel.find({})
       .sort("username")
       .skip(skip)
